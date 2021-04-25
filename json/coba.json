@@ -1,0 +1,14 @@
+{
+	"nama" : "Marro Sandy B. S.",
+	"umur" : 21,
+	"nim" : "105217005",
+	"lulus" : true,
+	"hobi" : [
+		"Coding",
+		"Game"
+	],
+	"pembimbing" : {
+		"pembimbing1" : "Bu Tasmi",
+		"pembimbing2" : "Bu Meredita"
+	}
+}
