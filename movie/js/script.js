@@ -1,4 +1,4 @@
-$('#search-button').on('click', function(){
+function serachMovie(){
 	$('#movie-list').html('')
 	$.ajax({
 		url: 'https://www.omdbapi.com',
@@ -31,6 +31,14 @@ $('#search-button').on('click', function(){
 			}
 		}
 	});
+}
 
-	
+$('#search-button').on('click', function(){
+	serachMovie();
 });
+
+$('#search-input').on('keyup', function(e){
+	if(e.keyCode === 13) {
+		serachMovie();
+	}
+})
