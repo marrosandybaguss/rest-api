@@ -10,6 +10,7 @@ function get_CURL($url){
   return json_decode($result, true);
 }
 
+// Youtube
 $result = get_CURL('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCkXmLjEr95LVtGuIm3l2dPg&key=AIzaSyCfQ7Ll5oUWhUt91HaY4XcaLJVLjZg5Lm0');
 $ytThumb = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
 $ytName = $result['items'][0]['snippet']['title'];
@@ -17,6 +18,20 @@ $ytSubscribers = $result['items'][0]['statistics']['subscriberCount'];
 
 $result = get_CURL('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCkXmLjEr95LVtGuIm3l2dPg&order=date&type=video&key=AIzaSyCfQ7Ll5oUWhUt91HaY4XcaLJVLjZg5Lm0');
 $ytVideoId = $result['items'][0]['id']['videoId'];
+
+// Instagram
+$result = get_CURL('https://graph.facebook.com/v10.0/instagram_oembed?url=https://www.instagram.com/p/COFaGPNhN0T/&access_token=1154207895001341|28994b94e91390de81aad2e5ebea98cb');
+$igImage1 = $result['thumbnail_url'];
+$result = get_CURL('https://graph.facebook.com/v10.0/instagram_oembed?url=https://www.instagram.com/p/COE5GHrhXqD/&access_token=1154207895001341|28994b94e91390de81aad2e5ebea98cb');
+$igImage2 = $result['thumbnail_url'];
+$result = get_CURL('https://graph.facebook.com/v10.0/instagram_oembed?url=https://www.instagram.com/p/COAYrfkh0Lg/&access_token=1154207895001341|28994b94e91390de81aad2e5ebea98cb');
+$igImage3 = $result['thumbnail_url'];
+
+// Try to get Self Biodata Information
+// $clientId = '1154207895001341';
+// $accessToken = 'IGQVJWWXVoNHpLckF6Wjk0Sm41QnpNRWNZAQzNaR2xrZAkJvUzB2bENTS0hSWUtrei1jeG5oX1JMMVloa3dTLW1wVHF4Y1BKcjFEbUNyS3hvcnREVUJHbldGeTZAwbnhmNmloTXFib3JacFJsN3JfUDUtUwZDZD';
+// $accessToken = 'IGQVJVa21VZA1d0bjNWRHJ5THNtUGdnd0ZA0UDZAxSVh1Q1BXRXUyNldQVHZAyb0ZAwazF5aUVHckxKeDg4eTkwNVNXWW11QWphb3hJM0kwdjRpYmktSXd2SjdaR2dPUGxJUURkVWNsU2tpcUtwdEdiQ1daRAZDZD';
+
 
  ?>
 
@@ -107,6 +122,7 @@ $ytVideoId = $result['items'][0]['id']['videoId'];
                   <div class="col-md-8">
                     <h5><?= $ytName ?></h5>
                     <p><?= $ytSubscribers ?> subscribers</p>
+                    <div class="g-ytsubscribe" data-channelid="UCkXmLjEr95LVtGuIm3l2dPg" data-layout="default" data-count="default"></div>
                   </div>
                 </div>
                 <div class="row mt-3 pb-3">
@@ -130,13 +146,13 @@ $ytVideoId = $result['items'][0]['id']['videoId'];
                 <div class="row mt-3 pb-3">
                   <div class="col">
                     <div class="ig-thumbnail">
-                      <img src="img/thumbs/1.png">
+                      <img src="<?= $igImage1 ?>">
                     </div>
                     <div class="ig-thumbnail">
-                      <img src="img/thumbs/2.png">
+                      <img src="<?= $igImage2 ?>">
                     </div>
                     <div class="ig-thumbnail">
-                      <img src="img/thumbs/3.png">
+                      <img src="<?= $igImage3 ?>">
                     </div>
                   </div>
                 </div>  
@@ -292,5 +308,6 @@ $ytVideoId = $result['items'][0]['id']['videoId'];
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
   </body>
 </html>
