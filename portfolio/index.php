@@ -1,3 +1,25 @@
+<?php 
+
+function get_CURL($url){
+  $curl = curl_init();
+  curl_setopt($curl, CURLOPT_URL, $url);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+  $result = curl_exec($curl);
+  curl_close($curl);
+
+  return json_decode($result, true);
+}
+
+$result = get_CURL('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCkXmLjEr95LVtGuIm3l2dPg&key=AIzaSyCfQ7Ll5oUWhUt91HaY4XcaLJVLjZg5Lm0');
+$ytThumb = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
+$ytName = $result['items'][0]['snippet']['title'];
+$ytSubscribers = $result['items'][0]['statistics']['subscriberCount'];
+
+$result = get_CURL('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCkXmLjEr95LVtGuIm3l2dPg&order=date&type=video&key=AIzaSyCfQ7Ll5oUWhUt91HaY4XcaLJVLjZg5Lm0');
+$ytVideoId = $result['items'][0]['id']['videoId'];
+
+ ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -80,17 +102,17 @@
               <div class="col-md-5">
                 <div class="row">
                   <div class="col-md-4">
-                    <img src="img/profile1.png" width="200" class="rounded-circle img-thumbnail">  
+                    <img src="<?= $ytThumb ?>" width="200" class="rounded-circle img-thumbnail">  
                   </div>
                   <div class="col-md-8">
-                    <h5>Youtube</h5>
-                    <p>123987 suscribers</p>
+                    <h5><?= $ytName ?></h5>
+                    <p><?= $ytSubscribers ?> subscribers</p>
                   </div>
                 </div>
                 <div class="row mt-3 pb-3">
                   <div class="col">
                     <div class="embed-responsive embed-responsive-16by9">
-                      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?= $ytVideoId ?>?rel=0" allowfullscreen></iframe>
                     </div>
                   </div>
                 </div>  
