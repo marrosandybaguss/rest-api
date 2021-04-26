@@ -17,7 +17,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#home">Sandhika Galih</a>
+        <a class="navbar-brand" href="#home">Marrosandy Bagus S.</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,7 +42,7 @@
       <div class="container">
         <div class="text-center">
           <img src="img/profile1.png" class="rounded-circle img-thumbnail">
-          <h1 class="display-4">Sandhika Galih</h1>
+          <h1 class="display-4">Marrosandy B. S.</h1>
           <h3 class="lead">Lecturer | Programmer | Youtuber</h3>
         </div>
       </div>
@@ -68,9 +68,63 @@
       </div>
     </section>
 
+    <!-- Youtube & Instagram -->
+    <section class="social bg-light" id="social">  
+        <div class="container"> 
+            <div class="row pt-4 mb-4">
+                <div class="col text-center">
+                  <h2>Social Media</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-5">
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="img/profile1.png" width="200" class="rounded-circle img-thumbnail">  
+                  </div>
+                  <div class="col-md-8">
+                    <h5>Youtube</h5>
+                    <p>123987 suscribers</p>
+                  </div>
+                </div>
+                <div class="row mt-3 pb-3">
+                  <div class="col">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>  
+              </div>
+              <div class="col-md-5">
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="img/profile1.png" width="200" class="rounded-circle img-thumbnail">  
+                  </div>
+                  <div class="col-md-8">
+                    <h5>@marrosandybaguss</h5>
+                    <p>280 followers</p>
+                  </div>
+                </div>
+                <div class="row mt-3 pb-3">
+                  <div class="col">
+                    <div class="ig-thumbnail">
+                      <img src="img/thumbs/1.png">
+                    </div>
+                    <div class="ig-thumbnail">
+                      <img src="img/thumbs/2.png">
+                    </div>
+                    <div class="ig-thumbnail">
+                      <img src="img/thumbs/3.png">
+                    </div>
+                  </div>
+                </div>  
+              </div>
+        </div>
+    </section>
+
 
     <!-- Portfolio -->
-    <section class="portfolio bg-light" id="portfolio">
+    <section class="portfolio" id="portfolio">
       <div class="container">
         <div class="row pt-4 mb-4">
           <div class="col text-center">
@@ -139,7 +193,7 @@
 
 
     <!-- Contact -->
-    <section class="contact" id="contact">
+    <section class="contact bg-light" id="contact">
       <div class="container">
         <div class="row pt-4 mb-4">
           <div class="col text-center">
