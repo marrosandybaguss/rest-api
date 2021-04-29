@@ -22,7 +22,7 @@ class Products extends ResourceController
         $data = $this->productModel->findAll();
         return $this->respond($data, 200);
     }
-     
+
     // get single product
     public function show($id = null)
     {
@@ -33,4 +33,26 @@ class Products extends ResourceController
             return $this->failNotFound('No Data Found with id '.$id);
         }
     }
+ 
+    // delete product
+    public function delete($id = null)
+    {
+        $data = $this->productModel->find($id);
+        if($data){
+            $this->productModel->delete($id);
+            $response = [
+                'status'   => 200,
+                'error'    => null,
+                'messages' => [
+                    'success' => 'Data Deleted'
+                ]
+            ];
+             
+            return $this->respondDeleted($response);
+        }else{
+            return $this->failNotFound('No Data Found with id '.$id);
+        }
+         
+    }
+ 
 }
