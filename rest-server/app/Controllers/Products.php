@@ -75,4 +75,30 @@ class Products extends ResourceController
         return $this->respondCreated($response, 201);
     }
  
+    // update product
+    public function update($id = null)
+    {
+        $data = $this->productModel->find($id);
+        if($data){
+            $input = $this->request->getRawInput();
+            $this->productModel->save([
+                'id' => $id,
+                'prod_name' => $input['prod_name'],
+                'prod_type' => $input['prod_type'],
+                'prod_qty' => $input['prod_qty'],
+                'prod_notes' => $input['prod_notes']
+            ]);
+            $response = [
+                'status'   => 200,
+                'error'    => null,
+                'messages' => [
+                    'success' => 'Data Product Has Been Updated'
+                ]
+            ];
+            return $this->respond($response);
+        }else{
+            return $this->failNotFound('No Data Found with id '.$id);
+        }
+    }
+ 
 }
