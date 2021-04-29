@@ -54,5 +54,25 @@ class Products extends ResourceController
         }
          
     }
+
+    // create a product
+    public function create()
+    {
+        $this->productModel->save([
+            'prod_name' => $this->request->getPost('prod_name'),
+            'prod_type' => $this->request->getPost('prod_type'),
+            'prod_qty' => $this->request->getPost('prod_qty'),
+            'prod_notes' => $this->request->getPost('prod_notes')
+        ]);
+        $response = [
+            'status'   => 201,
+            'error'    => null,
+            'messages' => [
+                'success' => 'New Product '.$this->request->getPost('prod_name').' Has Been Created'
+            ],
+        ];
+         
+        return $this->respondCreated($response, 201);
+    }
  
 }
