@@ -22,5 +22,15 @@ class Products extends ResourceController
         $data = $this->productModel->findAll();
         return $this->respond($data, 200);
     }
- 
+     
+    // get single product
+    public function show($id = null)
+    {
+        $data = $this->productModel->getWhere(['id' => $id])->getResult();
+        if($data){
+            return $this->respond($data);
+        }else{
+            return $this->failNotFound('No Data Found with id '.$id);
+        }
+    }
 }
